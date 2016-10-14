@@ -3,9 +3,10 @@
 package main
 
 import (
-    "fmt"
-    "time"
-    cx "bitbucket.org/tormundo/go.conductor"
+	"fmt"
+	"time"
+
+	cx "bitbucket.org/tormundo/go.conductor"
 )
 
 var cu300 = cx.Conductor{cx.CC_CU, "CU 300 MCM", 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
