@@ -16,6 +16,8 @@ func main() {
 	cc, _ := cx.NewCurrentCalc(cu300)
 	//cc := CurrentCalc{Conductor: cu300}	// No verifica ni inicializa valores
 
+	fmt.Printf("%T\n", cc)
+
 	tas := [5]float64{10, 15, 20, 25, 30}
 	tcs := [5]float64{30, 35, 40, 45, 50}
 
