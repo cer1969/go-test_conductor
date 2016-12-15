@@ -21,7 +21,7 @@ func main() {
 	tas := [5]float64{10, 15, 20, 25, 30}
 	tcs := [5]float64{30, 35, 40, 45, 50}
 
-	fmt.Println(cc.Name)
+	fmt.Println(cu300.Name)
 	fmt.Println("----------------")
 
 	t1 := time.Now()
@@ -33,7 +33,12 @@ func main() {
 		}
 	}
 
-	fmt.Println(time.Now().Sub(t1))
+	tc, _ := cc.Tc(30, 171.14)
+	fmt.Printf("%.3f\n", tc)
+	ta, _ := cc.Ta(40, 171.14)
+	fmt.Printf("%.3f\n", ta)
+
+	fmt.Printf("%v\n", time.Now().Sub(t1))
 
 	//r, err := cc.Resistance(2001)
 }
