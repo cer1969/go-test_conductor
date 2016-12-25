@@ -9,10 +9,11 @@ import (
 	cx "bitbucket.org/tormundo/go.conductor"
 )
 
-var cu300 = cx.Conductor{cx.CC_CU, "CU 300 MCM", 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
+//var cu300 = cx.Conductor{cx.CC_CU, "CU 300 MCM", 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
 
 func main() {
-	//cu300 := Conductor{CC_CU, "CU 300 MCM", 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
+	cat, _ := cx.CC_CU.Get()
+	cu300 := cx.Conductor{*cat, "CU 300 MCM", 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
 	cc, _ := cx.NewCurrentCalc(cu300)
 	//cc := CurrentCalc{Conductor: cu300}	// No verifica ni inicializa valores
 
