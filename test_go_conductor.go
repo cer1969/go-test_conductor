@@ -12,9 +12,21 @@ import (
 //var cu300 = cx.Conductor{cx.CC_CU, "CU 300 MCM", 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
 
 func main() {
-	cat, _ := cx.CC_CU.Get()
-	cu300 := cx.Conductor{*cat, "CU 300 MCM", 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
-	cc, _ := cx.NewCurrentCalc(cu300)
+
+	cuArgs := cx.ConductorArgs{"CU 300 MCM", cx.CC_CU, 15.95, 152.00, 1.378, 6123.0, 0.12270, 1e-10, ""}
+	fmt.Printf("%T\n", cuArgs)
+	fmt.Printf("%v\n", cuArgs)
+	fmt.Printf("%v\n", cuArgs.Category.Name())
+
+	cu300, err := cuArgs.Get()
+	//cu300, err := cx.NewConductor("CU 300 MCM", cx.CC_CU, 15.95, 152.00, 1.378, 6123.0, 0.12270, 1e-10, "")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%v\n", cu300)
+
+	cc, _ := cx.NewCurrentCalc(*cu300)
+	//cc = &cx.CurrentCalc{0.12270, 15.95, 0.00374, 300.0, 2.0, 1.0, 0.5, cx.CF_IEEE, 0.01}
 	//cc := CurrentCalc{Conductor: cu300}	// No verifica ni inicializa valores
 
 	fmt.Printf("%T\n", cc)
