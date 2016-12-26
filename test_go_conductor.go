@@ -13,23 +13,19 @@ import (
 
 func main() {
 
-	cuArgs := cx.ConductorArgs{"CU 300 MCM", cx.CC_CU, 15.95, 152.00, 1.378, 6123.0, 0.12270, 1e-10, ""}
+	cuArgs := cx.ConductorArgs{"CU 300 MCM", cx.CC_CU, 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
 	fmt.Printf("%T\n", cuArgs)
 	fmt.Printf("%v\n", cuArgs)
 	fmt.Printf("%v\n", cuArgs.Category.Name())
 
-	cu300, err := cuArgs.Get()
-	//cu300, err := cx.NewConductor("CU 300 MCM", cx.CC_CU, 15.95, 152.00, 1.378, 6123.0, 0.12270, 1e-10, "")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("%v\n", cu300)
+	cu300 := cuArgs.Get()
 
-	cc, _ := cx.NewCurrentCalc(*cu300)
+	cc, _ := cx.NewCurrentCalc(cu300)
 	//cc = &cx.CurrentCalc{0.12270, 15.95, 0.00374, 300.0, 2.0, 1.0, 0.5, cx.CF_IEEE, 0.01}
 	//cc := CurrentCalc{Conductor: cu300}	// No verifica ni inicializa valores
 
 	fmt.Printf("%T\n", cc)
+	fmt.Printf("%v\n", cc.Conductor())
 
 	tas := [5]float64{10, 15, 20, 25, 30}
 	tcs := [5]float64{30, 35, 40, 45, 50}
