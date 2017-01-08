@@ -13,7 +13,7 @@ import (
 
 func main() {
 
-	cuArgs := cx.ConductorArgs{"CU 300 MCM", cx.CC_CU, 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
+	cuArgs := cx.ConductorMaker{"CU 300 MCM", cx.CC_CU, 15.95, 152.00, 1.378, 6123.0, 0.12270, 0, ""}
 	fmt.Printf("%T\n", cuArgs)
 	fmt.Printf("%v\n", cuArgs)
 	fmt.Printf("%v\n", cuArgs.Category.Name())
